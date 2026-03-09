@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case 1 Layout</title>
+    <style>
+        :root {
+            --red: #ff0000;
+            --green: #008000;
+            --orange: #ffa500;
+            --pink: #ff1493;
+            --white: #ffffff;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+
+        .container {
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            width: 800px;
+            height: 450px;
+            border: 2px solid #333;
+            overflow: hidden;
+        }
+
+
+        .quad {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .red { background-color: var(--red); }
+        .green { background-color: var(--green); }
+        .orange { background-color: var(--orange); }
+        .pink { background-color: var(--pink); }
+
+
+        .circle-square {
+            width: 120px;
+            height: 120px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .inner-square {
+            width: 50px;
+            height: 50px;
+            background-color: var(--red);
+        }
+
+
+        .center-piece {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .center-dot {
+            width: 60px;
+            height: 60px;
+            background-color: var(--red);
+            border-radius: 50%;
+        }
+
+
+        .cutout {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border-radius: 50%;
+        }
+
+        .top-left { top: -40px; left: -40px; }
+        .top-mid { top: -40px; left: 50%; transform: translateX(-50%); }
+        .top-right { top: -40px; right: -40px; }
+        .bot-left { bottom: -40px; left: -40px; }
+        .bot-mid { bottom: -40px; left: 50%; transform: translateX(-50%); }
+        .bot-right { bottom: -40px; right: -40px; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="quad red">
+        <div class="cutout top-left"></div>
+        <div class="circle-square">
+            <div class="inner-square"></div>
+        </div>
+    </div>
+
+    <div class="quad green">
+        <div class="cutout top-mid"></div>
+        <div class="cutout top-right"></div>
+        <div class="circle-square">
+            <div class="inner-square"></div>
+        </div>
+    </div>
+
+    <div class="quad orange">
+        <div class="cutout bot-left"></div>
+        <div class="circle-square">
+            <div class="inner-square"></div>
+        </div>
+    </div>
+
+    <div class="quad pink">
+        <div class="cutout bot-mid"></div>
+        <div class="cutout bot-right"></div>
+        <div class="circle-square">
+            <div class="inner-square"></div>
+        </div>
+    </div>
+
+    <div class="center-piece">
+        <div class="center-dot"></div>
+    </div>
+</div>
+
+</body>
+</html>
